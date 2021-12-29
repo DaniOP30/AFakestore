@@ -13,6 +13,7 @@ const StoreItem = ({title, price})=>{
 
 function Store({items}){
     return <Box p={4}>
+        
             <Stack>
                 {items.map(item => {
                     return <StoreItem title={item.title} price={item.price} />

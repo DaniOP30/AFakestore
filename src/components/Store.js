@@ -23,7 +23,6 @@ function Store({items, loading, cates}){
     const [filteredItems, setFiltereditems] = useState(items)
 
     const [cate, setcate] = useState(cates)
-
     useEffect(()=>{
         setFiltereditems(items);
     },[items])
@@ -46,10 +45,12 @@ function Store({items, loading, cates}){
                     let f = items.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
                     setFiltereditems(f);
                 }} placeholder="Search" mt={4}/>
+                
                 <Box borderRadius='lg' borderWidth='1px' mt={4}>
                     <Center>
                         <Heading>Categories</Heading>
                     </Center>
+
                     <SimpleGrid columns={4} spacing={4} mt={4} p={2}>
                         
                             {cate.map(item => {
@@ -58,7 +59,7 @@ function Store({items, loading, cates}){
                                                 <Stack>
                                                     <HStack>
                                                         <Tag size={"lg"}>
-                                                            <Link to={'#'}>
+                                                            <Link to={`/categories/${item}`}>
                                                                     {item}
                                                             </Link>
                                                         </Tag>
@@ -68,6 +69,7 @@ function Store({items, loading, cates}){
                                     </GridItem> 
                             })}
                     </SimpleGrid>
+
                 </Box>
 
                 <SimpleGrid columns={4} spacing={4} mt={4} p={2}>

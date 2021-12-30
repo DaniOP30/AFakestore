@@ -44,21 +44,11 @@ const Navbar = () => {
                   </MenuItemLink>
               </MenuItem>
             </Link>
-            <Link to={"/aboutMe"}>
-              <MenuItem>
-                <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                  <div>
-                  
-                    ABOUT ME
-                  </div>
-                </MenuItemLink>
-              </MenuItem>
-            </Link>
             <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <div>
                   
-                  CONTACT ME
+                  LOGIN
                 </div>
               </MenuItemLink>
             </MenuItem>

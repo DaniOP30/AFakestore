@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Header = ({title})=> <Box p={4} shadow={'md'}>
-    <Heading>{title}</Heading>
+const Header = ({title})=> <Box>
+    <Heading size='2xl'>{title}</Heading>
 </Box>
 
 
@@ -27,24 +27,27 @@ function Product(){
       },);
 
     return <Box>
-        <Header title={product.title}></Header>
+        
         <Box p={8} d={'flex'} alignItems={'center '}>
             
-            <Box ml={4}>
+            <Box mt={10} ml={4}>
                 <SimpleGrid spacing={4} columns={{base: 1, md: 5}}>
-                    <GridItem colSpan={2}>
-                        <Image w={48} src={product.image}></Image>
+                    <GridItem ml={10} colSpan={2}>
+                        <Image w={440} src={product.image}></Image>
                     </GridItem>
-                    <GridItem colSpan={3}>
+                    <GridItem mt={4} colSpan={3}>
                         <Stack spacing={4}>
-                            <Heading>Price: ${product.price}</Heading>
+                            <Header  title={product.title}></Header>
                             <Box>
-                                <Tag mt={2}>{product.category}</Tag>
-                                <Text>{product.description}</Text>
+                                <Tag p={2} colorScheme="brand" color='brand.white' mt={2}>{product.category}</Tag>
                             </Box>
+                            <Box fontSize={'lg'}>
+                                <Text >{product.description}</Text>
+                            </Box>
+                            <Heading>Price: ${product.price}</Heading>
                             <HStack>
-                                <Button w={"xs"} size={"sm"} colorScheme={'purple'}>Buy Now</Button>
-                                <Button w={"xs"} size={"sm"}>Show carts</Button>
+                                <Button p={8} w={"xs"} size={"sm"} colorScheme={'purple'}>Buy Now</Button>
+                                <Button p={8} w={"xs"} size={"sm"}>Add To Cart</Button>
                             </HStack>
                         </Stack>
                     </GridItem>

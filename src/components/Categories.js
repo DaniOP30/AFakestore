@@ -1,26 +1,32 @@
-import { Box, Heading, SimpleGrid, Spacer,  Tag, Image, Center, GridItem} from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Image, Center, GridItem, Text} from "@chakra-ui/react";
 import { useParams,Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-const Header = ({title})=> <Box p={4} shadow={'md'}>
+const Header = ({title})=> <Box p={4}>
     <Heading>{title}</Heading>
 </Box>
 
 
 const CategoryItem=({image, title, price})=> {
-    return <Box p={4} borderRadius='lg' borderWidth='1px' h={300}>
-        <Center>
-            <Image src={image} w={24} />
-        </Center>
-        
-        <Heading mt={4} size={"md"} fontWeight={"normal"} noOfLines={2} >{title}</Heading>
-        <Spacer/>
-        
-        <Tag mt={4}>${price}</Tag>
-        
-    </Box>
+    return (
+        <Box p={4} borderRadius='lg' borderWidth='1px' h={"full"}>
+            <SimpleGrid columns={1}>
+                <GridItem mt={10}>
+                    <Center pb={20}>
+                        <Image src={image} w={150} />
+                    </Center>
+                </GridItem>          
+                <GridItem>
+                    <Heading size='md' mt={4} fontWeight={"regular"} noOfLines={2} >{title}</Heading>
+                    
+                    <Text size={'lg'} w={{base:"full", md: 40}} fontSize={{base: 20, md: 24}} d={{base: "flex"}} fontWeight={"bold"} justifyContent={{base:"center", md: "left"}} colorScheme={"white"} color='black'  mt={4}>${price}</Text>
+
+                </GridItem>
+            </SimpleGrid>
+        </Box>
+    );
 }
 
 
@@ -61,7 +67,7 @@ function Categories(){
                 <Header title={item}></Header>
             </Center>
             
-            <SimpleGrid columns={4} spacing={4} mt={4} p={2}>            
+            <SimpleGrid columns={{base: 1, md: 4}} spacing={4} mt={4} p={2}>            
                         {category.map(item => {
                             return <GridItem key={item.id}>
                                 <Link to={`/product/${item.id}`}>

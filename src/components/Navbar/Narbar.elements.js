@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 70px;
-  background-color: #23394d; ;
+  padding-top:10px;
+  background-color: #fff; ;
 `;
 
 export const Wrapper = styled.div`
@@ -18,6 +19,7 @@ export const Wrapper = styled.div`
 
 export const LogoContainer = styled.div`
   margin-left: 0.5rem;
+  
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -39,17 +41,18 @@ export const LogoContainer = styled.div`
 `;
 
 export const Menu = styled.ul`
+  z-index:99999;
   height: 100%;
   display: flex;
   justify-content: space-between;
   list-style: none;
   @media screen and (max-width: 960px) {
-    background-color: #23394d;
+    background-color: #fff;
     position: absolute;
     top: 70px;
     left: ${({ open }) => (open ? "0" : "-100%")}; //Import
     width: 100%;
-    height: 90vh;
+    display: block;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -61,9 +64,10 @@ export const MenuItem = styled.li`
   height: 100%;
   @media screen and (max-width: 960px) {
     width: 100%;
+   
     height: 70px;
-    display: flex;
-    justify-content: ce;
+    display: block;
+    justify-content: center;
     align-items: center;
   }
 `;
@@ -74,7 +78,7 @@ export const MenuItemLink = styled.a`
   align-items: center;
   height: 100%;
   padding: 0.5rem 2.5rem;
-  color: #64b2ff;
+  color: #142243;;
   font-family: sans-serif;
   font-size: 1rem;
   font-weight: 300;
@@ -106,7 +110,7 @@ export const MenuItemLink = styled.a`
     width: 100%;
     div {
       width: 30%;
-      justify-content: left;
+      justify-content: center;
       svg {
         display: flex;
       }
@@ -115,7 +119,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 880px) {
     div {
       width: 40%;
-      justify-content: left;
+      justify-content: center;
       svg {
         display: flex;
       }
@@ -124,7 +128,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 500px) {
     div {
       width: 60%;
-      justify-content: left;
+      justify-content: center;
       svg {
         display: flex;
       }
@@ -133,7 +137,7 @@ export const MenuItemLink = styled.a`
   @media screen and (max-width: 260px) {
     div {
       width: 100%;
-      justify-content: left;
+      justify-content: center;
       svg {
         display: flex;
       }

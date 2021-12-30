@@ -35,23 +35,24 @@ const Navbar = () => {
           </MobileIcon>
 
           <Menu open={showMobileMenu}>
-            <Link to={"/"}>
+            <Link  to={"/"}>
               <MenuItem>
                   <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                       <div>
-                        HOME
+                        Home
                       </div>
                   </MenuItemLink>
               </MenuItem>
             </Link>
-            <MenuItem>
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <div>
-                  
-                  LOGIN
-                </div>
-              </MenuItemLink>
-            </MenuItem>
+            <Link to={"/"}>
+              <MenuItem>
+                <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                  <div>
+                    Login
+                  </div>
+                </MenuItemLink>
+              </MenuItem>
+            </Link>
           </Menu>
         </IconContext.Provider>
       </Wrapper>

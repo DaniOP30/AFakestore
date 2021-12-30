@@ -13,10 +13,6 @@ import {
   FaBattleNet,
   FaBars,
   FaTimes,
-  FaHome,
-  FaUserAlt,
-  FaBriefcase,
-  FaGlasses,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import {Link} from "react-router-dom";

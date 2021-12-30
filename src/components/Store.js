@@ -1,6 +1,6 @@
 
-import { Box, Button, Flex, Heading, Input, SimpleGrid, Spacer, Stack, Tag, Image, Center, GridItem, Spinner } from "@chakra-ui/react";
-import { useRef, useState, useEffect } from "react";
+import { Box, Heading, Input, SimpleGrid, Spacer,  Tag, Image, Center, GridItem, Spinner } from "@chakra-ui/react";
+import {  useState, useEffect } from "react";
 import Header from "./Header";
 import {Link} from "react-router-dom";
 

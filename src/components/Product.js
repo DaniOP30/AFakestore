@@ -1,4 +1,4 @@
-import { Box, Button, GridItem, Heading, HStack, Image, SimpleGrid, Stack, Text} from "@chakra-ui/react";
+import { Box, Button, GridItem, Heading, HStack, Image, SimpleGrid, Stack, Text, Tag} from "@chakra-ui/react";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -13,13 +13,18 @@ function Product(){
     const [product, setproduct] = useState([])
 
     const {id} = useParams();
-    console.log(id)
 
-    useEffect(async ()=>{
-        await axios.get(`https://fakestoreapi.com/products/${id}`).then(({data})=>{
-            setproduct(data);
-        });
-      }, []);
+    useEffect( ()=>{
+        (async function() {
+            try {
+                await axios.get(`https://fakestoreapi.com/products/${id}`).then(({data})=>{
+                    setproduct(data);
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        })();
+      },);
 
     return <Box>
         <Header title={product.title}></Header>
@@ -31,12 +36,17 @@ function Product(){
                         <Image w={48} src={product.image}></Image>
                     </GridItem>
                     <GridItem colSpan={3}>
-                        <Heading>Price: ${product.price}</Heading>
-                        <Text>{product.description}</Text>
-                        <HStack>
-                            <Button w={"xs"} size={"sm"} colorScheme={'purple'}>Buy Now</Button>
-                            <Button w={"xs"} size={"sm"}>Show carts</Button>
-                        </HStack>
+                        <Stack spacing={4}>
+                            <Heading>Price: ${product.price}</Heading>
+                            <Box>
+                                <Tag mt={2}>{product.category}</Tag>
+                                <Text>{product.description}</Text>
+                            </Box>
+                            <HStack>
+                                <Button w={"xs"} size={"sm"} colorScheme={'purple'}>Buy Now</Button>
+                                <Button w={"xs"} size={"sm"}>Show carts</Button>
+                            </HStack>
+                        </Stack>
                     </GridItem>
                 </SimpleGrid>
             </Box>

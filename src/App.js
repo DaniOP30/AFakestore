@@ -1,25 +1,41 @@
 import { useState, useEffect } from "react";
 import Store from "./components/Store";
 import axios from "axios";
-import {BrowserRouter, Router, Route,} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Router, Link} from "react-router-dom";
+import Product from "./components/Product";
+
 
 function App() {
   const [storeItem, setStoreItem]= useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    axios.get("https://fakestoreapi.com/products").then(({data})=>{
+   useEffect(async ()=>{
+    await axios.get("https://fakestoreapi.com/products").then(({data})=>{
       setLoading(false);
       setStoreItem(data);
     });
-  }, [])
+  }, []);
   return (
-    <div>
-      <Store loading={loading} items= {storeItem} onItemAdd={itemData=>{
-        setStoreItem([...storeItem, itemData])
-      }} />
-    </div>
-  );
-}
+   
+    <BrowserRouter>
+      <Routes>
+      <Route path='/' element={
+          <Store
+          loading={loading}
+          items={storeItem}
+          onItemAdd={(itemData) =>{
+            setStoreItem([...storeItem, itemData])
+            }}
+            />
+        } />
+      <Route path="/product/:id" element={<Product/>}
+      />
+      </Routes>
+    </BrowserRouter>
 
-export default App;
+    );
+  }
+  
+  export default App;
+  
+  

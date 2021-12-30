@@ -22,7 +22,7 @@ const StoreItem = ({title, price, image})=>{
             </GridItem>
         </SimpleGrid>
     </Box>
-    )
+    );
 };
 
 function Store({items, loading, cates}){
@@ -54,7 +54,7 @@ function Store({items, loading, cates}){
                         <Heading>Categories</Heading>
                     </Center>
 
-                    <SimpleGrid columns={{base: 1, md: 4}}  d={{base: 'block', md: 'flex'}} w={"full"} spacing={6} justifyContent={'center'} mt={4} p={{base: 0}} p={2} >
+                    <SimpleGrid columns={{base: 1, md: 4}}  d={{base: 'block', md: 'flex'}} w={"full"} spacing={6} justifyContent={'center'} mt={4} p={{base: 0, md: 2}}  >
                         
                             {cate.map(item => {
                                 return <GridItem mt={{base: 5 , md: 4}} key={item}>

@@ -58,7 +58,7 @@ function Store({items, loading, cates}){
                                                 <Stack>
                                                     <HStack>
                                                         <Tag size={"lg"}>
-                                                            <Link to={`/categories/${item}`}>
+                                                            <Link to={'#'}>
                                                                     {item}
                                                             </Link>
                                                         </Tag>

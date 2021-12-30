@@ -4,8 +4,6 @@ import axios from "axios";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Product from "./components/Product";
 import Navbar from "./components/Navbar/Navbar";
-import Categories from "./components/Categories";
-
 
 function App() {
   
@@ -54,7 +52,7 @@ function App() {
           } />
         <Route path="/product/:id" element={<Product/>}
         />
-        <Route path="/categories/:item" element={<Categories/>}></Route>
+        
       </Routes>
     </BrowserRouter>
 
